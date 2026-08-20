@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rebuilder's Encyclopedia — From Flint to Foundry</title>
+    <meta name="description" content="21.5 million words. 1,439 topics. Everything you need to rebuild civilization from scratch.">
+    <style>
+        :root {
+            --bg: #1a1a1a;
+            --bg-section: #222222;
+            --text: #e8e4df;
+            --text-muted: #a09a92;
+            --accent: #c45a2c;
+            --accent-light: #d4845f;
+            --border: #3a3530;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-light);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        .hero .stats {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .hero .stat {
+            text-align: center;
+        }
+        .hero .stat-number {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 700;
+            display: block;
+        }
+        .hero .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Email signup */
+        .signup-form {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .signup-form input[type="email"] {
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            background: var(--bg-section);
+            color: var(--text);
+            border-radius: 4px;
+            flex: 1;
+            min-width: 250px;
+        }
+        .signup-form button {
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .signup-form button:hover { background: var(--accent-light); }
+
+        /* Sections */
+        section { padding: 5rem 0; }
+        section:nth-child(even) { background: var(--bg-section); }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-weight: 400;
+        }
+        h2 .accent { color: var(--accent); }
+
+        /* Stages */
+        .stages { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .stage {
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 6px;
+            background: var(--bg);
+        }
+        .stage h3 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        .stage .timeframe {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+        .stage p { font-size: 0.95rem; color: var(--text-muted); }
+
+        /* Excerpt */
+        .excerpt {
+            background: var(--bg);
+            border-left: 3px solid var(--accent);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            border-radius: 0 6px 6px 0;
+        }
+        .excerpt p { margin-bottom: 1rem; }
+        .excerpt p:last-child { margin-bottom: 0; }
+
+        /* Stats bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        .stats-bar .stat-number {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 700;
+            display: block;
+        }
+        .stats-bar .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        footer a { color: var(--accent-light); text-decoration: none; }
+
+        /* CTA */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background 0.2s;
+            margin-top: 1.5rem;
+        }
+        .cta-button:hover { background: var(--accent-light); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero .stats { gap: 1.5rem; }
+            .stages { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div>
+            <h1>The Rebuilder's Encyclopedia</h1>
+            <p class="subtitle">From Flint to Foundry &mdash; The Complete Guide to Reconstructing Civilization</p>
+            <p class="tagline">Not another survival manual. This is the complete technical knowledge base for rebuilding human civilization from absolute zero &mdash; teaching you <em>why</em> things work so you can improvise when nothing goes as planned.</p>
+            <div class="stats">
+                <div class="stat"><span class="stat-number">21.5M</span><span class="stat-label">Words</span></div>
+                <div class="stat"><span class="stat-number">1,439</span><span class="stat-label">Topics</span></div>
+                <div class="stat"><span class="stat-number">46</span><span class="stat-label">Chapters</span></div>
+                <div class="stat"><span class="stat-number">2,519</span><span class="stat-label">Diagrams</span></div>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.95rem;">Get notified when we launch:</p>
+            <form class="signup-form" action="https://formspree.io/f/placeholder" method="POST">
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <button type="submit">Notify Me</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- What's Inside -->
+    <section>
+        <div class="container">
+            <h2>Seven Stages of <span class="accent">Rebuilding</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">From your first night with nothing to a functioning industrial society. Each stage builds on the last.</p>
+            <div class="stages">
+                <div class="stage">
+                    <h3>Stage 1: Day Zero</h3>
+                    <p class="timeframe">First 72 hours</p>
+                    <p>Water procurement, emergency shelter, fire from friction, threat assessment, psychological stabilization, immediate first aid.</p>
+                </div>
+                <div class="stage">
+                    <h3>Stage 2: Primitive Survival</h3>
+                    <p class="timeframe">First month</p>
+                    <p>Hunting and trapping, plant identification, hide processing, cordage, flintknapping, food preservation, sanitation systems.</p>
+                </div>
+                <div class="stage">
+                    <h3>Stage 3: Settlement</h3>
+                    <p class="timeframe">First year</p>
+                    <p>Permanent shelter construction, agriculture, animal husbandry, pottery, basic metallurgy, community water systems.</p>
+                </div>
+                <div class="stage">
+                    <h3>Stage 4: Village Economy</h3>
+                    <p class="timeframe">Years 2&ndash;5</p>
+                    <p>Blacksmithing, textiles, carpentry, masonry, trade systems, food surplus management, basic governance.</p>
+                </div>
+                <div class="stage">
+                    <h3>Stage 5: Organized Society</h3>
+                    <p class="timeframe">Years 5&ndash;20</p>
+                    <p>Education systems, advanced medicine, engineering, road building, legal frameworks, currency, specialized trades.</p>
+                </div>
+                <div class="stage">
+                    <h3>Stage 6: Pre-Industrial</h3>
+                    <p class="timeframe">Years 20&ndash;50</p>
+                    <p>Water power, advanced metallurgy, chemistry, optics, printing, navigation, large-scale agriculture.</p>
+                </div>
+                <div class="stage">
+                    <h3>Stage 7: Industrial Revolution</h3>
+                    <p class="timeframe">Years 50&ndash;100</p>
+                    <p>Steam power, electricity, telecommunications, precision manufacturing, modern medicine, industrial chemistry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Content -->
+    <section>
+        <div class="container">
+            <h2>What It <span class="accent">Reads Like</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">From the chapter on Bloomery Iron &mdash; turning rocks into metal with mud and charcoal:</p>
+            <div class="excerpt">
+                <p>Iron is the metal that matters. Copper is useful. Bronze is better. But iron is what separates a community that struggles from one that thrives. It's the metal that makes real tools, real weapons, real infrastructure possible. Every other metal you'll work with is either a stepping stone toward iron or a specialty material for specific applications.</p>
+                <p>This is the bottleneck skill. Everything downstream of it &mdash; steel, machinery, construction hardware, agricultural implements &mdash; runs faster once you're through it. Get this wrong and you'll produce a worthless lump of glassy slag and heartbreak. Get it right and you've unlocked the single most transformative capability in pre-industrial technology.</p>
+            </div>
+            <a href="#" class="cta-button">Download Free Sample Chapter</a>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section>
+        <div class="container">
+            <div class="stats-bar">
+                <div><span class="stat-number">21.5M</span><span class="stat-label">Total Words</span></div>
+                <div><span class="stat-number">1,439</span><span class="stat-label">Complete Topics</span></div>
+                <div><span class="stat-number">46</span><span class="stat-label">Chapters</span></div>
+                <div><span class="stat-number">2,519</span><span class="stat-label">Technical Diagrams</span></div>
+                <div><span class="stat-number">7</span><span class="stat-label">Civilization Stages</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section>
+        <div class="container">
+            <h2>About This <span class="accent">Project</span></h2>
+            <p style="max-width: 700px; color: var(--text-muted);">The Rebuilder's Encyclopedia is the most comprehensive single work ever assembled on the practical knowledge required to reconstruct human civilization from scratch. Every topic teaches underlying principles &mdash; not just steps to follow, but <em>why</em> things work &mdash; so that you can adapt, improvise, and solve problems that no book anticipated.</p>
+            <p style="max-width: 700px; color: var(--text-muted); margin-top: 1rem;">Published by <strong style="color: var(--text);">Peony River Ventures</strong>.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 1.5rem;">
+                <form class="signup-form" action="https://formspree.io/f/placeholder" method="POST">
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                    <button type="submit">Get Launch Updates</button>
+                </form>
+            </p>
+            <p>&copy; 2026 Peony River Ventures. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
