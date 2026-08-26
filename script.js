@@ -103,33 +103,9 @@
     });
   });
 
-  // --- Form submission handler ---
-  const signupForm = document.querySelector('.signup-form');
-  if (signupForm) {
-    signupForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const emailInput = signupForm.querySelector('input[type="email"]');
-      const email = emailInput ? emailInput.value : '';
-
-      if (email) {
-        // For now, show a confirmation message
-        // Replace with actual form handling (Netlify Forms, Formspree, etc.)
-        const formRow = signupForm.querySelector('.signup-form-row');
-        if (formRow) {
-          formRow.innerHTML =
-            '<p style="color: var(--accent-amber); font-size: 1.1rem; padding: 1rem 0; width: 100%; text-align: center;">' +
-            '&#10003; Thanks! We\'ll notify you at <strong>' + escapeHtml(email) + '</strong> when the Encyclopedia launches.</p>';
-        }
-      }
-    });
-  }
-
-  // --- Utility: escape HTML ---
-  function escapeHtml(text) {
-    var div = document.createElement('div');
-    div.appendChild(document.createTextNode(text));
-    return div.innerHTML;
-  }
+  // The email form is submitted natively. Its data-netlify attribute enables
+  // submission collection automatically when the site is deployed on Netlify.
+  // For Cloudflare Pages, point this form at the preferred email form provider.
 
   // --- Initialize ---
   document.addEventListener('DOMContentLoaded', function () {
